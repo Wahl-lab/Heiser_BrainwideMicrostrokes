@@ -234,96 +234,106 @@ Associated scripts: [`place_cell_transitions.py`](/place_cell_transitions/place_
     - Class labels for each cell (stable, unstable, noncoding)
       - Stable_unstable_classification.csv enclosed
 - `stable_unstable_classification.stability_sankey()`
-o	Input
-	Stability classification from classify_stability()
-o	Analysis
-	Compute transitions between classes (stable, unstable, noncoding) across experimental phases
-	Same procedure, but with permuted cell class assignments to produce chance level distribution
-o	Output
-	Transition matrices for stable/unstable/noncoding classes
-•	trans_matrix_stable.csv enclosed
+  - Input
+    - Stability classification from `classify_stability()`
+  - Analysis
+    - Compute transitions between classes (stable, unstable, noncoding) across experimental phases
+    - Same procedure, but with permuted cell class assignments to produce chance level distribution
+  - Output
+    - Transition matrices for stable/unstable/noncoding classes
+      - `trans_matrix_stable.csv` enclosed
 
-7. Population vector correlation
-PVC algorithm adapted from Shuman et al. (2020)7
-Directory: pvc
-Associated scripts: plot_pvc.py, hheise_pvc.py
-Core analysis functions
-•	plot_pvc.py
-o	Input
-	Spatially binned activity of tracked cells
-•	spatial_activity_maps_dff.pkl enclosed (see place_cell_transitions)
-o	Analysis
-	Plot PVC matrices (see Fig. 4A)
-o	Output
-	PVC matrices across experimental phases per animal
-•	Matrices of animals 41 (No Recovery), 90 (Recovery) and 91 (Sham) enclosed
-•	hheise_pvc.PvcCrossSessionEval().make()
-o	Input
-	PVC half-matrices from PvcCrossSession() per animal and session
-o	Analysis
-	Compute curve from matrix by averaging across positions
-	Evaluate curve based on multiple features
-o	Output
-	Features shown in manuscript: max_pvc (y-intercept, Fig. 4B) & min_slope (Fig. 4C)
-	Values for example session (M41, 2020-08-21 correlated with 2020-08-24): max_pvc = 0.598; min_slope = 1.45
-8. Bayesian decoder
-Decoder algorithm adapted from Shuman et al. (2020)7
-Directory: bayesian_decoder
-Associated scripts: hheise_decoder.py, bayesian_decoder.py
-Core analysis functions
-•	BayesianDecoderWithinSession.make()
-o	Input
-	ΔF/F traces of all neurons
-	Decoder parameters
-•	decoder_params.txt enclosed
-o	Algorithm
-	See Shuman et al. (2020)7
-	Decoder trained and tested on a single session (short-term decoder)
-o	Output
-	Frame-wise predicted animal position for each trial
-•	within_position_predict.csv and within_position_true.csv enclosed (array shape: n_frames x n_trials)
-	Within-session decoder performance quantification, averaged over repetitions of leave-one-out validation
-	Features shown in manuscript: accuracy (Fig. 3D) & reward-zone sensitivity (Fig. 3E)
-	Values for example session: accuracy=21.35%, sensitivity=87.23%
-•	BayesianDecoderLastPrestroke.make()
-o	Input
-	ΔF/F traces of all neurons
-	Decoder parameters
-•	decoder_params.txt enclosed
-o	Analysis
-	See Shuman et al. (2020)7
-	Decoder trained on the last prestroke session and tested on all other sessions (long-term decoder)
-o	Output
-	Frame-wise predicted animal position across tested session
-•	cross_session_decoder.csv (first column: true position; second column: predicted position)
-	Cross-session decoder performance quantification, averaged over sessions within each experimental phase
-	Features shown in manuscript: accuracy (Fig. 3D) & reward-zone sensitivity (Fig. 3E)
-	Values for example session (2020-08-24) correlated with another session (2020-08-27): accuracy=2.36%, sensitivity=51.80%
+## 7. Population vector correlation
+PVC algorithm adapted from Shuman et al. (2020)
 
-9. Functional connectivity
-Directory: functional_connectivity
-Associated scripts: hheise_connectivity.py
-Core analysis functions
-•	NeuronNeuronCorrelation().make()
-o	Input
-	Unbinned ΔF/F traces of all neurons
-o	Analysis
-	Compute correlation of ΔF/F traces between all neurons
-o	Output
-	Cross-correlation matrix of neuron-neuron correlation coefficients
-•	Matrix of example session (cross_corr_matrix.csv) enclosed
-•	For the analysis concerning functional correlation matrices (Fig. 4E), cosine similarities (Fig. 4F, G) and network connectivity distributions (Fig. 5A, C, D) please refer to the scripts and associated README in the Kiessler_Gjorgjieva subdirectory.
-10. Microsphere histology
-Directory: microsphere_histology
-Associated scripts: hheise_hist.py
-Core analysis functions
-•	Microsphere().make()
-o	Input
-	Microspheres and lesions manually detected and located in brain slices
-•	spheres_annotation.csv enclosed
-o	Analysis
-	Combine single-sphere datapoints into brain regions (get_structure_groups())
-o	Output
-	Lesion and sphere data for different brain regions
-•	microsphere_summary.csv enclosed
+Directory: [`pvc`](/pvc)
 
+Associated scripts: [`plot_pvc.py`](/pvc/plot_pvc.py), [`hheise_pvc.py`](/pvc/hheise_pvc.py)
+
+### Core analysis functions
+- `plot_pvc.py`
+  - Input
+    - Spatially binned activity of tracked cells
+      - `spatial_activity_maps_dff.pkl` enclosed (see place_cell_transitions)
+  - Analysis
+    - Plot PVC matrices (see Fig. 4A)
+  - Output
+    - PVC matrices across experimental phases per animal
+      - Matrices of animals 41 (No Recovery), 90 (Recovery) and 91 (Sham) enclosed
+- `hheise_pvc.PvcCrossSessionEval().make()`
+  - Input
+    - PVC half-matrices from `PvcCrossSession()` per animal and session
+  - Analysis
+    - Compute curve from matrix by averaging across positions
+    - Evaluate curve based on multiple features
+  - Output
+    - Features shown in manuscript: max_pvc (y-intercept, Fig. 4B) & min_slope (Fig. 4C)
+    - Values for example session (M41, 2020-08-21 correlated with 2020-08-24): max_pvc = 0.598; min_slope = 1.45
+## 8. Bayesian decoder
+Decoder algorithm adapted from Shuman et al. (2020)
+
+Directory: [`bayesian_decoder`](/bayesian_decoder)
+
+Associated scripts: [`hheise_decoder.py`](/bayesian_decoder/hheise_decoder.py), [`bayesian_decoder.py`](/bayesian_decoder/bayesian_decoder.py)
+
+### Core analysis functions
+- `BayesianDecoderWithinSession.make()`
+  - Input
+    - ΔF/F traces of all neurons
+    - Decoder parameters
+      - `decoder_params.txt` enclosed
+  - Algorithm
+    - See Shuman et al. (2020)
+    - Decoder trained and tested on a single session (short-term decoder)
+  - Output
+    - Frame-wise predicted animal position for each trial
+      - `within_position_predict.csv` and `within_position_true.csv` enclosed (array shape: n_frames x n_trials)
+      - Within-session decoder performance quantification, averaged over repetitions of leave-one-out validation
+      - Features shown in manuscript: accuracy (Fig. 3D) & reward-zone sensitivity (Fig. 3E)
+      - Values for example session: accuracy=21.35%, sensitivity=87.23%
+- `BayesianDecoderLastPrestroke.make()`
+  - Input
+    - ΔF/F traces of all neurons
+    - Decoder parameters
+      - decoder_params.txt enclosed
+  - Analysis
+    - See Shuman et al. (2020)
+    - Decoder trained on the last prestroke session and tested on all other sessions (long-term decoder)
+  - Output
+    - Frame-wise predicted animal position across tested session
+      - `cross_session_decoder.csv` (first column: true position; second column: predicted position)
+      - Cross-session decoder performance quantification, averaged over sessions within each experimental phase
+      - Features shown in manuscript: accuracy (Fig. 3D) & reward-zone sensitivity (Fig. 3E)
+      - Values for example session (2020-08-24) correlated with another session (2020-08-27): accuracy=2.36%, sensitivity=51.80%
+
+## 9. Functional connectivity
+Directory: [`functional_connectivity`](/functional_connectivity)
+
+Associated scripts: [`hheise_connectivity.py`](/functional_connectivity/hheise_connectivity.py)
+
+### Core analysis functions
+- `NeuronNeuronCorrelation().make()`
+  - Input
+    - Unbinned ΔF/F traces of all neurons
+  - Analysis
+    - Compute correlation of ΔF/F traces between all neurons
+  - Output
+    - Cross-correlation matrix of neuron-neuron correlation coefficients
+      - Matrix of example session (`cross_corr_matrix.csv`) enclosed
+    - For the analysis concerning functional correlation matrices (Fig. 4E), cosine similarities (Fig. 4F, G) and network connectivity distributions (Fig. 5A, C, D) please refer to the scripts and associated README in the [`Kiessler_Gjorgjieva`](/functional_connectivity/Kiessler_Gjorgjieva) subdirectory.
+
+## 10. Microsphere histology
+Directory: [`microsphere_histology`](/microsphere_histology)
+
+Associated scripts: [`hheise_hist.py`](/microsphere_histology/hheise_hist.py)
+
+### Core analysis functions
+- `Microsphere().make()`
+  - Input
+    - Microspheres and lesions manually detected and located in brain slices
+      - `spheres_annotation.csv` enclosed
+  - Analysis
+    - Combine single-sphere datapoints into brain regions (`get_structure_groups()`)
+  - Output
+    - Lesion and sphere data for different brain regions
+      - `microsphere_summary.csv` enclosed
