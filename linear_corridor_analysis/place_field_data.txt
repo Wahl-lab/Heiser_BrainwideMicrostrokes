@@ -1,0 +1,1 @@
+{"mouse_id": 41, "day": "2020-08-24", "session_num": 1, "motion_id": 1, "caiman_id": 0, "place_cell_id": 2, "corridor_type": 0, "mask_id": 685, "place_field_id": 0, "large_enough": 1, "strong_enough": 1, "transients": 1, "com": 52.4626, "com_sd": 2.17123}

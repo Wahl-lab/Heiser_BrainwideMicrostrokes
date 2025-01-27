@@ -1,0 +1,1 @@
+{"window_halfsize": 0.5, "n_cells": 100, "data_type": "dff", "neuron_subset": "stability", "include_resting": 0, "ignore_zeros": 0, "description": "Stability with dF/F and self-tuned parameters."}

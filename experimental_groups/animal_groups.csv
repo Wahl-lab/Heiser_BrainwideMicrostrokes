@@ -1,0 +1,22 @@
+,mouse_id,coarse,fine,early,late
+0,33,Control,Control,0.975784,0.773585
+1,41,Stroke,No Recovery,0.373764,0.50911
+2,63,Stroke,No Recovery,0.260622,0.0931684
+3,69,Stroke,No Recovery,0.363792,0.255961
+4,83,Control,Control,1.13472,1.10589
+5,85,Stroke,Recovery,0.608552,1.05543
+6,86,Stroke,Recovery,0.615888,0.771102
+7,89,Stroke,Recovery,0.375301,0.815086
+8,90,Stroke,Recovery,0.699366,1.31038
+9,91,Control,Control,1.15735,1.22863
+10,93,Control,Control,0.845183,0.829724
+11,95,Control,Control,0.952715,1.03954
+12,108,Control,Control,0.775332,0.696792
+13,110,Stroke,No Recovery,0.406712,0.507219
+14,111,Control,Control,0.945589,0.643735
+15,112,Control,Control,0.82204,0.718888
+16,113,Stroke,Recovery,0.696423,1.23522
+17,114,Control,Control,1.67937,1.12166
+18,115,Control,Control,1.63162,1.02345
+19,116,Control,Control,1.23803,1.01954
+20,122,Control,Control,0.953723,0.931512
