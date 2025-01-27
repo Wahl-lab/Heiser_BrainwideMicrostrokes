@@ -79,8 +79,8 @@ Associated scripts: [`common_img.py`](/2p_imaging/common_img.py), [`motion_corre
   - Input
     - TIF files from two-photon microscope, one per trial
       - TIF files of 5 trials enclosed (`file_00001.tif`, `file_00002.tif`, `file_00003.tif`, `file_00004.tif`, `file_00005.tif`)
-	Dict of CaImAn motion correction parameters 
-•	motion_params.txt enclosed
+    - Dict of CaImAn motion correction parameters
+      - `motion_params.txt` enclosed
 o	Analysis
 	Preprocessing of movies
 •	Crop edges of movies by 12 px to remove scanning artifacts
