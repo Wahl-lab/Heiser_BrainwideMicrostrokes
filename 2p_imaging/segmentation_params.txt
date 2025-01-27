@@ -1,0 +1,1 @@
+{"p": 2, "nb": 2, "merge_thr": 0.75, "rf": 25, "stride_cnmf": 10, "k": 23, "g_sig": 5, "method_init": "greedy_roi", "ssub": 2, "tsub": 2, "snr_lowest": 4.1, "snr_thr": 8.0, "rval_lowest": -1.0, "rval_thr": 0.85, "cnn_lowest": 0.22, "cnn_thr": 0.9, "flag_auto": 1, "quantile_min": 8, "frame_window": 2000, "weight_thresh": 0.005}

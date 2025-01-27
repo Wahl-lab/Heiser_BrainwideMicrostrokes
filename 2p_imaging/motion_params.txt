@@ -1,0 +1,1 @@
+{"crop_left": 12, "crop_right": 12, "offset": 220, "max_shift": 10, "stride_mc": 153, "overlap_mc": 32, "pw_rigid": 0, "max_dev_rigid": 3, "border_nan": 0, "n_iter_rig": 1, "nonneg_movie": 1}
