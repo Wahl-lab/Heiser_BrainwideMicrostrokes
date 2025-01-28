@@ -79,7 +79,7 @@ Associated scripts: [`common_img.py`](/2p_imaging/common_img.py), [`motion_corre
 - `MotionCorrection().make()`
   - Input
     - TIF files from two-photon microscope, one per trial
-      - TIF files of 5 trials enclosed (`file_00001.tif`, `file_00002.tif`, `file_00003.tif`, `file_00004.tif`, `file_00005.tif`)
+      - TIF files of 5 trials enclosed (`file_00001.tif`, `file_00002.tif`, `file_00003.tif`, `file_00004.tif`, `file_00005.tif`; in Google Drive)
     - Dict of CaImAn motion correction parameters
       - `motion_params.txt` enclosed
   - Analysis
@@ -120,7 +120,7 @@ Associated scripts: [`common_img.py`](/2p_imaging/common_img.py), [`motion_corre
     - ROI features (center of mass, SNR, R, CNN, ΔF/F percentile)
       - `roi_features.csv` enclosed
     - ΔF/F traces per ROI
-      - `dff.npy` enclosed
+      - `dff.npy` enclosed (Google Drive)
 - `Deconvolution().make()`
   - Input
     - ΔF/F traces from `Segmentation()` table
@@ -129,7 +129,7 @@ Associated scripts: [`common_img.py`](/2p_imaging/common_img.py), [`motion_corre
     - Use CASCADE to predict spike probabilities from ΔF/F traces
   - Output
     - Deconvolved spike probability traces per ROI
-      - `decon.npy` enclosed
+      - `decon.npy` enclosed (Google Drive)
     - Noise level per ROI, as determined by CASCADE
       - `noise_lvl.csv` enclosed
 
@@ -184,7 +184,7 @@ Associated scripts: [`hheise_placecell.py`](/linear_corridor_analysis/hheise_pla
       - Spatially binned activity (trial-wise)
         - `binned_activity.csv` enclosed
       - Isolated significant transients of ΔF/F traces
-        - `transient_only.npy` enclosed
+        - `transient_only.npy` enclosed (Google Drive)
       - Parameters for place cell classification
         - `place_cell_params.txt` enclosed
     - Analysis
@@ -223,16 +223,16 @@ Associated scripts: [`place_cell_transitions.py`](/place_cell_transitions/place_
 - `stable_unstable_classification.classify_stability()`
   - Input
     - Spatially binned activity of tracked cells
-      - spatial_activity_maps_dff.pkl enclosed
+      - `spatial_activity_maps_dff.pkl` enclosed (Google Drive)
     - Place cell classification labels of tracked cells
-      - is_pc.pkl enclosed
+      - `is_pc.pkl` enclosed
   - Analysis
     - Yield baseline stability score for each network
     - Classify place cells as stable or unstable depending on their cross-session stability compared to the baseline stability
   - Output
     - Baseline stability score for each network
     - Class labels for each cell (stable, unstable, noncoding)
-      - Stable_unstable_classification.csv enclosed
+      - `Stable_unstable_classification.csv` enclosed
 - `stable_unstable_classification.stability_sankey()`
   - Input
     - Stability classification from `classify_stability()`
